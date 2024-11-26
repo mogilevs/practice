@@ -10,10 +10,10 @@ const styles = {
 };
 
 export default function RegistrationPage() {
-    return (
-        <div style={styles.container}>
-            <h2>Welcome to the registration form!</h2>
-            <RegistrationForm/>
-        </div>
-    )
-};
+  return (
+    <div style={styles.container}>
+      <h2>Welcome to the registration form!</h2>
+      <RegistrationForm />
+    </div>
+  );
+}

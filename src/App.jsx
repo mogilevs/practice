@@ -14,35 +14,40 @@ const RegistrationPage = lazy(() => import("../../pages/RegistrationPage"));
 const MainPage = lazy(() => import("../../pages/MainPage"));
 
 export default function App() {
-   return (<Layout>
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route
-        path="/register"
-        element={
-          <RestrictedRoute
-            component={<RegistrationPage />}
-            redirectTo={"/main"}
-          />
-        }
-      />
-      <Route
-        path="/login"
-        element={
-          <RestrictedRoute
-            component={<LoginPage />}
-            redirectTo={"/main"}
-          />
-        }
-      />
-      <Route
-        path="/main"
-        element={
-          <PrivateRoute component={<MainPage />} redirectTo={"/login"} />
-        }
-      />
-      <Route path="*" element={<HomePage />} />
-    </Routes>
-    {/* <Toaster /> */}
-  </Layout>);
+  return (
+    <Layout>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <RestrictedRoute component={<HomePage />} redirectTo={"/main"} />
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute
+              component={<RegistrationPage />}
+              redirectTo={"/main"}
+            />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute component={<LoginPage />} redirectTo={"/main"} />
+          }
+        />
+        <Route
+          path="/main"
+          element={
+            <PrivateRoute component={<MainPage />} redirectTo={"/login"} />
+          }
+        />
+        <Route path="*" element={<HomePage />} />
+      </Routes>
+      <div></div>
+      {/* <Toaster /> */}
+    </Layout>
+  );
 }
